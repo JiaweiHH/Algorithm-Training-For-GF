@@ -57,3 +57,33 @@ vector<int> inorderTraversal(TreeNode* root) {
 }
 ```
 
+### 2021-12-8
+
+[144. 二叉树的前序遍历 - 力扣（LeetCode） (leetcode-cn.com)](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
+
+要求：
+
+1. 同样理解前序遍历中栈的使用，做到自己能写出非递归版本，手动模拟能够加深理解
+
+参考代码
+
+```c++
+vector<int> preorderTraversal(TreeNode* root) {
+  std::vector<int> result;
+  if(root == nullptr)
+    return result;
+  std::stack<TreeNode *> sp;
+  while(!(sp.empty()) || root) {
+    while(root) {
+      result.push_back(root->val);
+      sp.push(root);
+      root = root->left;
+    }
+    TreeNode *node = sp.top();
+    sp.pop();
+    root = node->right;
+  }
+  return result;
+}
+```
+
