@@ -26,6 +26,24 @@ public:
 };
 ```
 
+非递归形式的关键代码，考虑用队列进行层序遍历，从上到下对于每一个节点交换左右节点
+
+```c++
+while (!queue.empty()) {
+	TreeNode *node = queue.front();
+  queue.pop();
+  auto tmp = node->left;
+  node->left = node->right;
+  node->right = tmp;
+  if (node->left != nullptr)
+    queue.push(node->left);
+ 	if (node->right != nullptr)
+    queue.push(node->right);
+}
+```
+
+
+
 ### 2021-12-6
 
 [94. 二叉树的中序遍历 - 力扣（LeetCode） (leetcode-cn.com)](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
@@ -86,4 +104,36 @@ vector<int> preorderTraversal(TreeNode* root) {
   return result;
 }
 ```
+
+### 2021-12-9
+
+[102. 二叉树的层序遍历 - 力扣（LeetCode） (leetcode-cn.com)](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+
+任务要求：
+
+- 理解广度优先搜索（BFS）
+- 用 BFS 或者说是层序遍历的方式完成 2021.12.5 的题目 
+
+BFS 代码框架
+
+```c++
+std::vector<int> bfs(TreeNode *root) {
+  std::vector<int> res;
+  if (root == nullptr)
+    return res;
+  std::queue<TreeNode *> queue;
+  queue.push(root);
+  while (!(queue.empty())) {
+    TreeNode *node = queue.front();
+    queue.pop();
+    res.push_back(node->val);
+    if (node->left)
+      queue.push(node->left);
+    if (node->right)
+      queue.push(node->right);
+  }
+}
+```
+
+
 
