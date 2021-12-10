@@ -135,5 +135,40 @@ std::vector<int> bfs(TreeNode *root) {
 }
 ```
 
+### 2021-12-10
 
+[107. 二叉树的层序遍历 II - 力扣（LeetCode） (leetcode-cn.com)](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
+
+提示：
+
+- 虽然题目要求是自底向上一层一层遍历，但是能不能转换为常规自顶向下的遍历方式
+
+想通这种转换这题就没有什么问题了，尽量先自己想想，然后再看参考代码
+
+> 难度：中等
+
+关键部分代码参考
+
+```c++
+while(!(queue.empty())) {
+  std::vector<int> tmp;
+  int n = 0;  /* 记录下一层次的长度 */
+  for (int i = 0; i < len; ++i) {
+    TreeNode *node = queue.front();
+    queue.pop();
+    tmp.push_back(node->val);
+
+    if (node->left) {
+      queue.push(node->left);
+      ++n;
+    }
+    if (node->right) {
+      queue.push(node->right);
+      ++n;
+    }
+  }
+  len = n;
+  res.push_back(tmp);
+}
+```
 
