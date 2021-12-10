@@ -172,3 +172,10 @@ while(!(queue.empty())) {
 }
 ```
 
+### 2021-12-11
+
+[103. 二叉树的锯齿形层序遍历 - 力扣（LeetCode） (leetcode-cn.com)](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
+
+层序遍历应用
+
+> 不给参考代码啦
