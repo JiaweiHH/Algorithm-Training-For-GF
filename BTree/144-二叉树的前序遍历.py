@@ -10,20 +10,21 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        #根左右
-        res=[]
-        self.preorder(root,res)
+        # 根左右
+        res = []
+        self.preorder(root, res)
         return res
-    def preorder(self,root,res):
-        if root==None:
+
+    def preorder(self, root, res):
+        if root == None:
             return
         res.append(root.val)
-        self.preorder(root.left,res)
-        self.preorder(root.right,res)
+        self.preorder(root.left, res)
+        self.preorder(root.right, res)
 
 
-#以上是递归形式
-#以下是迭代方式
+# 以上是递归形式
+# 以下是迭代方式
 
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -37,15 +38,15 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[int]
         """
-        stack=[]
-        res=[]
-        if root==None:
+        stack = []
+        res = []
+        if root == None:
             return res
         while stack or root:
             while root:
                 res.append(root.val)
                 stack.append(root)
-                root=root.left
-            root=stack.pop()
-            root=root.right
+                root = root.left
+            root = stack.pop()
+            root = root.right
         return res
