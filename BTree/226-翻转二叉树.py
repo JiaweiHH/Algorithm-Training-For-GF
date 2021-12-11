@@ -66,3 +66,5 @@ class Solution(object):
             if node.right:
                 queue.append(node.right)  # 存在右节点就加入队列
         return root
+
+# 栈的方法就不来实现了
