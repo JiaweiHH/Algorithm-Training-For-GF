@@ -179,3 +179,11 @@ while(!(queue.empty())) {
 层序遍历应用
 
 > 不给参考代码啦
+
+### 2021-12-11
+
+[230. 二叉搜索树中第K小的元素 - 力扣（LeetCode） (leetcode-cn.com)](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst/)
+
+- 中序遍历
+- 非递归 + 递归实现
+- 最后可以看一下官方题解里面题解二的方法
