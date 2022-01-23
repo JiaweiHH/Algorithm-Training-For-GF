@@ -22,6 +22,22 @@ class Solution(object):
             return self.dfs(root.left,temp)+self.dfs(root.right,temp)
         
 #以上是dfs递归形式
+
+
+class Solution(object):
+    def sumNumbers(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        stack=[]
+        numstack=[]
+        while stack or root:
+            while root:
+                stack.append(root)
+                temp=root
+                root=root.left
+                
 #以下是bfs非递归形式
 # Definition for a binary tree node.
 # class TreeNode(object):
@@ -55,40 +71,4 @@ class Solution(object):
                     queue.append(right)
                     numqueue.append(num*10+right.val)
         return total
-
-
-#dfs非递归？？？？不太清楚是不是对的，感觉像广度搜索，不是深度
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution(object):
-    def sumNumbers(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        if not root:
-            return 0
-        total=0
-        stack=[root]
-        numstack=[root.val]
-        while stack:
-            node=stack.pop(0)#取最左边
-            num=numstack.pop(0)#取最左边
-            left,right=node.left,node.right
-            if not left and not right:#左右为空
-                total+=num#直接放回这个和
-            else:
-                if left:#左边不为空
-                    stack.append(left)
-                    numstack.append(num*10+left.val)
-                if right:#右边不为空
-                    stack.append(right)
-                    numstack.append(num*10+right.val)
-        return total
-
-
 
