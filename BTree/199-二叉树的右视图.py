@@ -1,3 +1,4 @@
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
@@ -12,13 +13,15 @@ class Solution(object):
         """
         if not root:
             return []
-        Queue=[root]
+        Queue=[root]#Queue=deque([root])
         res=list()
         n=1
         count=0
         while Queue:
+            #node=Queue[-1]直接弹出最后一个node会更快一点
+            #之后就是下一层的节点都加入到队列中
             for i in range(n):
-                node=Queue.pop(0)
+                node=Queue.pop(0)#node=Queue.popleft()
                 if i==n-1:
                     res.append(node.val)
                 if node.left:
@@ -31,4 +34,5 @@ class Solution(object):
             count=0
         return res
 
-#还是层序遍历的套路，但是每次都输出那一层的最后一个node
+
+
