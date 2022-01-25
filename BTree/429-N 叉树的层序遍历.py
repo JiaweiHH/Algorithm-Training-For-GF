@@ -21,6 +21,9 @@ class Solution(object):
             for i in range(len(Queue)):
                 node=Queue.popleft()
                 list1.append(node.val)
+                #node.children是Node对象组成的列表
+                #deque.extend:从右端逐个添加可迭代对象
+                #if node.children:Queue.extend(node.children)
                 for node1 in node.children:#因为children是链表，所以要遍历一遍
                     Queue.append(node1)
             res.append(list1)
