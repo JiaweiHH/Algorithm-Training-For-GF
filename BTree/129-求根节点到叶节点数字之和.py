@@ -23,20 +23,6 @@ class Solution(object):
         
 #以上是dfs递归形式
 
-
-class Solution(object):
-    def sumNumbers(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        stack=[]
-        numstack=[]
-        while stack or root:
-            while root:
-                stack.append(root)
-                temp=root
-                root=root.left
                 
 #以下是bfs非递归形式
 # Definition for a binary tree node.

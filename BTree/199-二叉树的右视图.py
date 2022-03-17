@@ -1,4 +1,11 @@
 
+
+# deque来自collections模块，不在力扣平台时，需要手动写入
+# 'from collections import deque' 导入
+# deque相比list的好处是，list的pop(0)是O(n)复杂度，deque的popleft()是O(1)复杂度
+#还是层序遍历的套路，但是每次都输出那一层的最后一个node
+
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
